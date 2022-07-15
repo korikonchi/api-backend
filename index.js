@@ -2,8 +2,11 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 app.use(cors())
+// solution to CORS exchange resources cross origin
 app.use(express.json())
 // app support request make when pass a object and parsing JSON PARSE
+app.use(express.static('build'))
+//  ever express receiving a request verify if directory buld contain a file.
 const requestLogger = require('./loggerMiddleware')
 app.use(requestLogger)
 //  middleware use object request and response,rememeber request in side of client  are storen in object request can manipulate with (express.json) and add to object request as request.body
